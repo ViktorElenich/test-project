@@ -1,0 +1,58 @@
+@import '../../styles/vars';
+
+.header__container {
+  background: $main-color;
+  padding: 0 135px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 500;
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      margin-right: 50px;
+      text-decoration: none;
+      font-size: 1rem;
+      color: white;
+      font-weight: 300;
+      letter-spacing: 1px;
+
+      &:hover {
+        color: gray;
+        transition: 0.5s;
+      }
+    }
+  }
+
+  .btn__contact {
+    width: 140px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    border: 1px solid	rgba(255,255,255, 0.5);
+    border-radius: 15px;
+  }
+}

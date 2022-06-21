@@ -1,0 +1,7 @@
+@import './styles/reset';
+@import './styles/vars';
+
+body {
+  font-family: $main-font;
+  color: white;
+}
