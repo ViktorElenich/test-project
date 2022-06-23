@@ -1,0 +1,26 @@
+@import '../../styles/vars';
+
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $main-color;
+  height: 320px;
+  width: 100%;
+
+  h1 {
+    font-size: 4rem;
+    font-family: $main-font;
+    font-weight: 800;
+  }
+
+  p {
+    width: 630px;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+}

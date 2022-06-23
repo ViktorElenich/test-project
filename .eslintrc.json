@@ -21,6 +21,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "no-param-reassign": [2, { "props": false }],
     "react/function-component-definition": [0],
+    "react/no-array-index-key": 0,
     "import/extensions": [
       "error",
       "always",

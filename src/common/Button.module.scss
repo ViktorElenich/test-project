@@ -1,0 +1,16 @@
+@import '../styles/vars';
+
+.btn {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: black;
+  font-family: $main-font;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:active, &:focus {
+    color: rgb(5, 226, 5) !important;
+  }
+}
