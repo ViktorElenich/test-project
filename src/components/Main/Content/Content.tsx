@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import Button from '../../../common/Button';
+import Button from '../../../common/Button/Button';
 import data from '../../../data';
 import styles from './Content.module.scss';
 import { DataInterface } from "../../../interface/interface";
+import Select from '../../../common/Select/Select';
 
 const allCategories = ['Show All', ...new Set(data.map(item => item.filter))];
 
 const Content = () => {
-  const { contentContainer, filterContainer, content, itemContainer, loadMore, fadeIn, active } = styles;
+  const { contentContainer, filterContainer, content, itemContainer, loadMore, fadeIn } = styles;
   const [visible, setVisible] = useState({count: 9});
   const [cards, setCards] = useState(data);
   const [buttons] = useState(allCategories);
@@ -25,11 +26,9 @@ const Content = () => {
     setCards(filteredData);
   }
 
-  const toggleItem = (event: React.MouseEvent) => {
-    if (event.currentTarget.classList.contains(active)){
-      event.currentTarget.classList.remove(active)
-    } else {
-      event.currentTarget.classList.add(active)
+  const deleteItem = (event: React.KeyboardEvent<HTMLButtonElement>, id: number) => {
+    if (event.key === 'Delete') {
+      setCards(data.filter(item => item.id !== id));
     }
   }
 
@@ -37,19 +36,27 @@ const Content = () => {
     <div className={contentContainer}>
       <div className={filterContainer}>
         <Button categories={buttons} filterData={filterData} />
+        <Select categories={buttons} filterData={filterData} />
       </div>
       <div className={content}>
         {cards.slice(0, visible.count).map((item: DataInterface) => (
-          <div
+          <button
+            type="button"
             key={item.id}
             className={`${itemContainer} ${fadeIn}`} 
-            onClick={(event) => toggleItem(event)}
+            onKeyDown={(event) => deleteItem(event, item.id)}
             aria-hidden="true"
           >
             <img src={`images/${item.img}.png`} alt="img" />
-            <span>{item.filter}</span>
+            <button 
+              type="button" 
+              onClick={(event) => filterData(event.currentTarget.value)}
+              value={item.filter}
+            >
+              {item.filter}
+            </button>
             <h2>{item.name}</h2>
-          </div>
+          </button>
         ))}
       </div>
       {visible.count < cards.length && 

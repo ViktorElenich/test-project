@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
 import logo from '../../assets/logo.png';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 const Header = () => {
   const { headerContainer, logoContainer, navigation, btnContact, wrapper } = styles;
@@ -19,6 +20,7 @@ const Header = () => {
           <NavLink to="Blog">Blog</NavLink>
         </div>
         <a href='#contact' className={btnContact}>Contact</a>
+        <BurgerMenu />
       </div>
     </div>
   )
